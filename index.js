@@ -24,10 +24,10 @@ app.use(microservicesRouting);
 
 // Error handling
 app.use((error, req, res, next) => {
-  if (!res.writableEnded) {
-    res.status(500).json(error.message);
-  }
-  return;
+    if (!res.writableEnded) {
+        res.status(500).json(error.message);
+    }
+    return;
 })
 
 // Initialize database
@@ -37,10 +37,10 @@ const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 (async () => {
     try {
-        mongoClient = await MongoClient.connect('mongodb://localhost:27017/kenjo-challenge', mongoOptions);
+        mongoClient = await MongoClient.connect('mongodb://0.0.0.0:27017/kenjo-challenge', mongoOptions);
         app.locals.mongodb = mongoClient.db(mongoClient.options.dbName);
 
-        app.locals.mongoose = mongoose.connect('mongodb://localhost:27017/kenjo-challenge', mongoOptions);
+        app.locals.mongoose = mongoose.connect('mongodb://0.0.0.0/kenjo-challenge', mongoOptions);
         mongoose.set('runValidators', true);
 
         // Listen for requests
