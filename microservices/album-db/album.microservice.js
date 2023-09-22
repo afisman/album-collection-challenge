@@ -52,7 +52,30 @@ class AlbumDbMicroservice {
 
       const findResult = await AlbumModel.find(findQuery).lean().exec();
 
-      res.status(httpStatusCodes.OK).send(findResult[0]);
+      res.status(httpStatusCodes.OK).send(findResult);
+    } catch (error) {
+      next(error);
+      return;
+    }
+  }
+
+  /**
+  * @summary Find document by id from a collection
+  * @description Get document
+  * @param {express.Request} req is the request of the operation
+  * @param {express.Response} res is the response of the operation
+  * @param {express.Next} next is the middleware to continue with code execution
+  * @returns {Object} with document
+  */
+  findbyId = async (req, res, next) => {
+    try {
+      const findOneQuery = { _id: req.params.id };
+
+      const findOneResult = await AlbumModel.findOne(findOneQuery);
+
+      console.log(findOneQuery);
+
+      res.status(httpStatusCodes.OK).send(findOneResult);
     } catch (error) {
       next(error);
       return;
@@ -103,8 +126,9 @@ class AlbumDbMicroservice {
 
     try {
       const documentId = req.params.id;
+      const documentQuery = { _id: documentId };
 
-      await AlbumModel.findByIdAndDelete(documentId);
+      await AlbumModel.findOneAndDelete(documentQuery);
       res.status(httpStatusCodes.OK).send({});
 
     } catch (error) {
@@ -123,6 +147,35 @@ class AlbumDbMicroservice {
     //   }).catch(error => {
     //     next(error);
     //   });
+  }
+  /**
+    * @summary scores an album
+    * @description Creates a rating for an album which is added to the ratings array
+    * @param {express.Request} req is the request of the operation
+    * @param {express.Response} res is the response of the operation
+    * @param {express.Next} next is the middleware to continue with code execution
+    * @returns {Object} Empty object if the operation went well
+    */
+
+  scoreAlbum = async (req, res, next) => {
+    try {
+      const albumId = req.params.id;
+      const rating = req.body.rating;
+
+      console.log(albumId);
+
+      const updatedScore = await AlbumModel
+        .findByIdAndUpdate(albumId, {
+          // $set: {
+          //   score: { $avg: this.ratings }
+          // }
+          // ,
+          $push: { ratings: rating }
+        }, { new: true })
+      res.status(httpStatusCodes.OK).send(updatedScore);
+    } catch (error) {
+
+    }
   }
 }
 

@@ -37,10 +37,10 @@ const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 (async () => {
     try {
-        mongoClient = await MongoClient.connect('mongodb://0.0.0.0:27017/kenjo-challenge', mongoOptions);
+        mongoClient = await MongoClient.connect('mongodb://127.0.0.1:27017', mongoOptions);
         app.locals.mongodb = mongoClient.db(mongoClient.options.dbName);
 
-        app.locals.mongoose = mongoose.connect('mongodb://0.0.0.0/kenjo-challenge', mongoOptions);
+        app.locals.mongoose = mongoose.connect('mongodb://127.0.0.1:27017', mongoOptions);
         mongoose.set('runValidators', true);
 
         // Listen for requests

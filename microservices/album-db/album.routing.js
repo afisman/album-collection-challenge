@@ -4,7 +4,7 @@ const albumDbMicroservice = new AlbumDbMicroservice();
 
 const albumDbRouter = express.Router();
 
-albumDbRouter.use(express.json({limit: '50mb'}));
+albumDbRouter.use(express.json({ limit: '50mb' }));
 
 // CREATE
 albumDbRouter.post('/create',
@@ -18,16 +18,26 @@ albumDbRouter.get('/',
     albumDbMicroservice.find(req, res, next);
   });
 
+albumDbRouter.get('/update/:id',
+  (req, res, next) => {
+    albumDbMicroservice.findbyId(req, res, next);
+  });
 // UPDATE
-albumDbRouter.put('/:id',
+albumDbRouter.put('/update/:id',
   (req, res, next) => {
     albumDbMicroservice.updateById(req, res, next);
   });
 
-// UPDATE
-albumDbRouter.delete('/:id',
+// DELETE
+albumDbRouter.delete('/delete/:id',
   (req, res, next) => {
     albumDbMicroservice.deleteById(req, res, next);
+  });
+
+//SCORE
+albumDbRouter.put('/score/:id',
+  (req, res, next) => {
+    albumDbMicroservice.scoreAlbum(req, res, next);
   });
 
 module.exports = albumDbRouter;
