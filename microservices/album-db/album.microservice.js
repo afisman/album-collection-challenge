@@ -73,7 +73,6 @@ class AlbumDbMicroservice {
 
       const findOneResult = await AlbumModel.findOne(findOneQuery);
 
-      console.log(findOneQuery);
 
       res.status(httpStatusCodes.OK).send(findOneResult);
     } catch (error) {
@@ -135,18 +134,6 @@ class AlbumDbMicroservice {
       next(error);
       return;
     }
-
-    //   AlbumModel.deleteOne(deleteQuery).then(deleteResult => {
-    //     if (check.not.assigned(deleteResult)) {
-    //       let error = new Error('Document to delete was not found.');
-    //       next(error);
-    //       return;
-    //     }
-
-    //     res.status(httpStatusCodes.OK).send({});
-    //   }).catch(error => {
-    //     next(error);
-    //   });
   }
   /**
     * @summary scores an album
@@ -162,17 +149,17 @@ class AlbumDbMicroservice {
       const albumId = req.params.id;
       const rating = req.body.rating;
 
-      console.log(albumId);
+      const updatedScore = await AlbumModel.findByIdAndUpdate(albumId, { $push: { ratings: rating } },
+        { new: true })
 
-      const updatedScore = await AlbumModel
-        .findByIdAndUpdate(albumId, {
-          // $set: {
-          //   score: { $avg: this.ratings }
-          // }
-          // ,
-          $push: { ratings: rating }
-        }, { new: true })
-      res.status(httpStatusCodes.OK).send(updatedScore);
+      const totalRatings = updatedScore.ratings.length;
+      const totalScore = updatedScore.ratings.reduce((acc, val) => acc + val, 0);
+      const averageScore = totalScore / totalRatings;
+
+      const updatedAlbum = await AlbumModel.findByIdAndUpdate(albumId, { $set: { score: averageScore } },
+        { new: true });
+
+      res.status(httpStatusCodes.OK).send(updatedAlbum);
     } catch (error) {
 
     }
