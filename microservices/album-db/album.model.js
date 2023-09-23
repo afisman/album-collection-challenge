@@ -8,6 +8,7 @@ const albumSchema = {
     year: { type: Number, required: true },
     artist: { type: String, required: true, trim: true },
     photoUrl: { type: String, trim: true },
+    genre: { type: String, trim: true },
     score: { type: Number, default: 0 },// Modify this field as you need
     ratings: [{ type: Number }],
     // Add any  fields you need

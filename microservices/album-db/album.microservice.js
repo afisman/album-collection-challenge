@@ -99,6 +99,7 @@ class AlbumDbMicroservice {
     try {
       const updateId = req.params.id;
       const updateData = req.body;
+      console.log(updateData);
 
       await AlbumModel.findByIdAndUpdate(updateId, updateData);
 
@@ -148,6 +149,7 @@ class AlbumDbMicroservice {
     try {
       const albumId = req.params.id;
       const rating = req.body.rating;
+      console.log(rating)
 
       const updatedScore = await AlbumModel.findByIdAndUpdate(albumId, { $push: { ratings: rating } },
         { new: true })
