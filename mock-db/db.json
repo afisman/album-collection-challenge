@@ -1,0 +1,166 @@
+[{
+  "_id": {
+    "$oid": "650dd9ed7fe01073d3a05407"
+  },
+  "title": "Gaia",
+  "year": 2000,
+  "artist": "Mago de Oz",
+  "photoUrl": "https://m.media-amazon.com/images/I/81cqPpCjeOL._UF1000,1000_QL80_.jpg",
+  "score": 3,
+  "ratings": [
+    2,
+    4
+  ],
+  "__v": 0,
+  "genre": "Rock"
+},{
+  "_id": {
+    "$oid": "650de0a6a42833d1dae67d54"
+  },
+  "title": "Dark side of the Moon",
+  "year": 1973,
+  "artist": "Pink Floyd",
+  "photoUrl": "https://m.media-amazon.com/images/I/41XHg50VvfL._AC_SX679_.jpg",
+  "score": 4,
+  "ratings": [
+    4
+  ],
+  "__v": 0,
+  "genre": "Rock"
+},{
+  "_id": {
+    "$oid": "650f271877b40952c6439b55"
+  },
+  "title": "Led Zeppelin IV",
+  "year": 1971,
+  "artist": "Led Zeppelin",
+  "photoUrl": "https://m.media-amazon.com/images/I/81evsr3Oq0L._AC_SX679_.jpg",
+  "score": 5,
+  "ratings": [
+    5
+  ],
+  "__v": 0,
+  "genre": "Rock"
+},{
+  "_id": {
+    "$oid": "650ff33d0905bc531c35ff6a"
+  },
+  "title": "Raro",
+  "year": 2006,
+  "artist": "El cuarteto de Nos",
+  "photoUrl": "data:image/jpeg;base64,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",
+  "genre": "Latin",
+  "score": 4,
+  "ratings": [
+    4
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "651067c26f7ed92a796e1893"
+  },
+  "title": "Led Zeppelin III",
+  "year": 1970,
+  "artist": "Led Zeppelin",
+  "photoUrl": "https://m.media-amazon.com/images/I/81bWu6h+pnL._UF1000,1000_QL80_.jpg",
+  "genre": "Rock",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "651068096f7ed92a796e18be"
+  },
+  "title": "Led Zeppelin II",
+  "year": 1969,
+  "artist": "Led Zeppelin",
+  "photoUrl": "https://m.media-amazon.com/images/I/71WpyKW5kkL._UF350,350_QL80_.jpg",
+  "genre": "Rock",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6510683a6f7ed92a796e18d8"
+  },
+  "title": "Led Zeppelin",
+  "year": 1968,
+  "artist": "Led Zeppelin",
+  "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Hindenburg_burning.jpg/260px-Hindenburg_burning.jpg",
+  "genre": "Rock",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "651068806f7ed92a796e1904"
+  },
+  "title": "El rock de mi pueblo",
+  "year": 2004,
+  "artist": "Carlos Vives",
+  "photoUrl": "https://m.media-amazon.com/images/I/51NP5nX6rHL._SY200_QL15_.jpg",
+  "genre": "Latin",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6510690c6f7ed92a796e19d0"
+  },
+  "title": "Shatter Me",
+  "year": 2014,
+  "artist": "Lindsey Stirling",
+  "photoUrl": "https://m.media-amazon.com/images/I/71-RmmqaYtL._AC_SX679_.jpg",
+  "genre": "Techno",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65106a0ed61ee36486157917"
+  },
+  "title": "The Duke Plays Ellington",
+  "year": 1953,
+  "artist": "Duke Ellington",
+  "photoUrl": "https://upload.wikimedia.org/wikipedia/en/c/c2/Piano_Reflections.jpg",
+  "genre": "Jazz",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65106a5fd61ee36486157949"
+  },
+  "title": "The Popular Duke Ellington",
+  "year": 1967,
+  "artist": "Duke Ellington",
+  "photoUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/The_Popular_Duke_Ellington.jpg/220px-The_Popular_Duke_Ellington.jpg",
+  "genre": "Jazz",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65106aa6d61ee36486157966"
+  },
+  "title": "Classic Yo-Yo",
+  "year": 2001,
+  "artist": "Yo-Yo Ma",
+  "photoUrl": "https://m.media-amazon.com/images/I/81HLUvEuV0L._UF1000,1000_QL80_.jpg",
+  "genre": "Classical",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65106aeed61ee364861579b9"
+  },
+  "title": "The Very Best of Buddy Holly and The Crickets",
+  "year": 2014,
+  "artist": "Buddy Holly and The Crickets",
+  "photoUrl": "https://m.media-amazon.com/images/I/51EfuuQ2QWL._SX300_SY300_QL70_FMwebp_.jpg",
+  "genre": "Rock",
+  "score": 0,
+  "ratings": [],
+  "__v": 0
+}]

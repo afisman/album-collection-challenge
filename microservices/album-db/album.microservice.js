@@ -67,12 +67,11 @@ class AlbumDbMicroservice {
   * @param {express.Next} next is the middleware to continue with code execution
   * @returns {Object} with document
   */
-  findbyId = async (req, res, next) => {
+  findById = async (req, res, next) => {
     try {
       const findOneQuery = { _id: req.params.id };
 
       const findOneResult = await AlbumModel.findOne(findOneQuery);
-
 
       res.status(httpStatusCodes.OK).send(findOneResult);
     } catch (error) {
@@ -80,6 +79,58 @@ class AlbumDbMicroservice {
       return;
     }
   }
+
+  /**
+ * @summary Find albums by genre from a collection
+ * @description Get albums
+ * @param {express.Request} req is the request of the operation
+ * @param {express.Response} res is the response of the operation
+ * @param {express.Next} next is the middleware to continue with code execution
+ * @returns {Array} with documents
+ */
+  findByGenre = async (req, res, next) => {
+    try {
+
+      const findGenres = { genre: req.params.genre };
+
+      const findResult = await AlbumModel.find(findGenres).lean().exec();;
+
+
+      res.status(httpStatusCodes.OK).send(findResult);
+    } catch (error) {
+      next(error);
+      return;
+    }
+  }
+
+  /**
+ * @summary Search albums by string
+ * @description Get albums by matching typing characters
+ * @param {express.Request} req is the request of the operation
+ * @param {express.Response} res is the response of the operation
+ * @param {express.Next} next is the middleware to continue with code execution
+ * @returns {Array} with documents
+ */
+  searchByKeyWord = async (req, res, next) => {
+    try {
+
+      const { keyWord } = req.params;
+
+      const findResult = await AlbumModel.find({
+        $or: [
+          { title: { $regex: keyWord, $options: "i" } },
+          { artist: { $regex: keyWord, $options: "i" } },
+        ]
+      }).lean().exec();;
+
+
+      res.status(httpStatusCodes.OK).send(findResult);
+    } catch (error) {
+      next(error);
+      return;
+    }
+  }
+
 
   /**
    * @summary Update a document
@@ -149,7 +200,6 @@ class AlbumDbMicroservice {
     try {
       const albumId = req.params.id;
       const rating = req.body.rating;
-      console.log(rating)
 
       const updatedScore = await AlbumModel.findByIdAndUpdate(albumId, { $push: { ratings: rating } },
         { new: true })

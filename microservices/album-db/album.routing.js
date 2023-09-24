@@ -12,17 +12,29 @@ albumDbRouter.post('/create',
     albumDbMicroservice.create(req, res, next);
   });
 
-// READ
+// READ 
+//ALL
 albumDbRouter.get('/',
   (req, res, next) => {
     albumDbMicroservice.find(req, res, next);
   });
+//BY GENRE
+albumDbRouter.get('/search/:genre', (req, res, next) => {
+  albumDbMicroservice.findByGenre(req, res, next)
+})
+//BY TYPED STRING
+albumDbRouter.get('/searchBy/:keyWord', (req, res, next) => {
+  albumDbMicroservice.searchByKeyWord(req, res, next)
+})
 
+
+// UPDATE
+//GET
 albumDbRouter.get('/update/:id',
   (req, res, next) => {
-    albumDbMicroservice.findbyId(req, res, next);
+    albumDbMicroservice.findById(req, res, next);
   });
-// UPDATE
+//PUT
 albumDbRouter.put('/update/:id',
   (req, res, next) => {
     albumDbMicroservice.updateById(req, res, next);
